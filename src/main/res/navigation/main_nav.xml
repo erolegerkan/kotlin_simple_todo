@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.todoapp.ui.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/mainToSaveRecordsNav"
+            app:destination="@id/saveRecordsFragment" />
+        <action
+            android:id="@+id/mainToDetailNav"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveRecordsFragment"
+        android:name="com.example.todoapp.ui.fragments.SaveRecordsFragment"
+        android:label="fragment_save_records"
+        tools:layout="@layout/fragment_save_records" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.todoapp.ui.fragments.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="Records"
+            app:argType="com.example.todoapp.data.entity.RecordEntity" />
+    </fragment>
+</navigation>
