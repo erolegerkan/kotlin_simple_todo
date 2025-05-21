@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
 
     id("androidx.navigation.safeargs")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -56,5 +58,13 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.1")
     implementation("androidx.activity:activity-ktx:1.6.1")
+
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-android-compiler:2.50")
+
+    implementation("androidx.room:room-runtime:2.7.1")
+    kapt("androidx.room:room-compiler:2.7.1")
+    implementation("androidx.room:room-ktx:2.7.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.0")
 
 }

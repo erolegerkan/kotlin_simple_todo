@@ -10,10 +10,12 @@ import com.example.todoapp.data.entity.RecordEntity
 import com.example.todoapp.databinding.CardDesignBinding
 import com.example.todoapp.ui.fragments.MainFragment
 import com.example.todoapp.ui.fragments.MainFragmentDirections
+import com.example.todoapp.ui.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class ToDoAdapter( var context: Context,
-                   var records: List<RecordEntity>)
+                   var records: List<RecordEntity>,
+                   var viewModel: MainViewModel)
     : RecyclerView.Adapter<ToDoAdapter.CardDesignHolder>(){
 
         inner class CardDesignHolder(var design : CardDesignBinding)
@@ -43,6 +45,7 @@ class ToDoAdapter( var context: Context,
         screenDesign.ivDelete.setOnClickListener {
             Snackbar.make(it,"To Do will be deleted, Are you sure?", Snackbar.LENGTH_SHORT)
                 .setAction("YES"){
+                    viewModel.deleteRecords(record)
                     Log.e("DELETE","TO DO DELETED")
                 }.show()
         }
